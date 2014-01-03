@@ -1,4 +1,4 @@
-package cz.bcp.roo.selenium.webdriver;
+package cz.bcp.roo.webdriver;
 
 import org.springframework.roo.model.JavaType;
 
@@ -17,17 +17,12 @@ public interface WebdriverOperations {
     boolean isCommandAvailable();
 
     /**
-     * Annotate the provided Java type with the trigger of this add-on
+     * Create WebDriver test for given entity
      */
-    void annotateType(JavaType type);
-    
-    /**
-     * Annotate all Java types with the trigger of this add-on
-     */
-    void annotateAll();
+    void createTestClass(JavaType entity);    
     
     /**
      * Setup all add-on artifacts (dependencies in this case)
      */
-    void setup();
+    void addDependencies();
 }

@@ -1,4 +1,4 @@
-package cz.bcp.roo.selenium.webdriver;
+package cz.bcp.roo.webdriver;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Service;

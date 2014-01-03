@@ -1,4 +1,4 @@
-package cz.bcp.roo.selenium.webdriver;
+package cz.bcp.roo.webdriver;
 
 import org.apache.felix.scr.annotations.Component;
 import org.apache.felix.scr.annotations.Reference;
@@ -37,7 +37,7 @@ public class WebdriverCommands implements CommandMarker { // All command types m
      * 
      * @return true (default) if the command should be visible at this stage, false otherwise
      */
-    @CliAvailabilityIndicator({ "webdriver setup", "webdriver add", "webdriver all" })
+    @CliAvailabilityIndicator({ "webdriver add-dependencies", "webdriver create-test"})
     public boolean isCommandAvailable() {
         return operations.isCommandAvailable();
     }
@@ -47,26 +47,17 @@ public class WebdriverCommands implements CommandMarker { // All command types m
      * 
      * @param type 
      */
-    @CliCommand(value = "webdriver add", help = "Some helpful description")
-    public void add(@CliOption(key = "type", mandatory = true, help = "The java type to apply this annotation to") JavaType target) {
-        operations.annotateType(target);
+    @CliCommand(value = "webdriver create-test", help = "Creates a new WebDriver test for the specified entity")
+    public void createTest(@CliOption(key = "classUnderTest", mandatory = true, help = "The name of the entity to create a WebDriver test for") JavaType entity) {
+        operations.createTestClass(entity);
     }
     
     /**
      * This method registers a command with the Roo shell. It has no command attribute.
      * 
      */
-    @CliCommand(value = "webdriver all", help = "Some helpful description")
-    public void all() {
-        operations.annotateAll();
-    }
-    
-    /**
-     * This method registers a command with the Roo shell. It has no command attribute.
-     * 
-     */
-    @CliCommand(value = "webdriver setup", help = "Setup Webdriver addon")
-    public void setup() {
-        operations.setup();
+    @CliCommand(value = "webdriver add-dependencies", help = "Add WebDriver dependencies to POM")
+    public void addDependencies() {
+        operations.addDependencies();
     }
 }

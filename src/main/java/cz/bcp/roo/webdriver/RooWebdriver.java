@@ -1,4 +1,4 @@
-package cz.bcp.roo.selenium.webdriver;
+package cz.bcp.roo.webdriver;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
